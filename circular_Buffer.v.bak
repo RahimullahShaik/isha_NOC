@@ -9,7 +9,18 @@ module circular_Buffer #(parameter buf_Size=8)(
 	output flit_Data output_Data;		//output packet from the buf 
 	output buf_empty;			//gets asserted when buf is empty
 	output buf_full;			//gets asserted when buf is full
-	output buf_On_Off;			//to allow and disallow the incoming flits depending on the threshold set by us 
+	output buf_On_Off;			//signal to allow and disallow the incoming flits depending on the threshold set by us 
 	);
 
+localparam on_Off_threshold = 1;		//this is the threshold value which should on and off the buffer that is if the count is 1 then we should
+						//start accepting the flits and if the count is 7 then we should stop accepting the flits
+localparam [31:0]pointer_Size = clog2(buf_Size);//pointer size of the buffer 
+
+logic [pointer_Size-1:0] wr_Ptr;		//write pointer 
+logic [pointer_Size-1:0] rd_Ptr;		//Read pointer 
+
+logic [pointer_Size-1:0] wr_Ptr_Next;		//write pointer to be written next
+logic [pointer_Size-1:0] rd_Ptr_Next;		//read pointer to be read next 
+
+localparam fifo_Depth = 1<<pointer_Size;
 

@@ -1,20 +1,22 @@
-import params;
-module circular_Buffer #(parameter buf_Size=8)(
+import params_noc::*;
+//'include "params.sv"
 
-	input flit_Data input_Data;		//input packet to the buf 
-	input read_i;				//gets asserted if we are reading data from the buf
-	input write_i;				//gets asserted if we are writing data to the buf 
-	input clk;				//clock
-	input rst_n;				//reset
-	output flit_Data output_Data;		//output packet from the buf 
-	output buf_empty;			//gets asserted when buf is empty
-	output buf_full;			//gets asserted when buf is full
-	output buf_On_Off;			//signal to allow and disallow the incoming flits depending on the threshold set by us 
+module circular_Buffer #(parameter BUFFER_SIZE = 8)
+(
+	input flit_Data_noVC input_Data,		//input packet to the buf 
+	input read_i,							//gets asserted if we are reading data from the buf
+	input write_i,							//gets asserted if we are writing data to the buf 
+	input clk,								//clock
+	input rst_n,							//reset
+	output flit_Data_noVC output_Data,		//output packet from the buf 
+	output logic buf_empty,						//gets asserted when buf is empty
+	output logic buf_full,						//gets asserted when buf is full
+	output logic buf_On_Off						//signal to allow and disallow the incoming flits depending on the threshold set by us 
 	);
 
-localparam on_Off_threshold = 1;		//this is the threshold value which should on and off the buffer that is if the count is 1 then we should
+localparam on_Off_threshold = 1;		//this is the threshold value which should, on and off the buffer i.e, if the count is 1 then we should
 						//start accepting the flits and if the count is 7 then we should stop accepting the flits
-localparam [31:0]pointer_Size = clog2(buf_Size);//pointer size of the buffer 
+localparam [31:0]pointer_Size = $clog2(BUFFER_SIZE);//pointer size of the buffer 
 
 logic [pointer_Size-1:0] wr_Ptr;		//write pointer 
 logic [pointer_Size-1:0] rd_Ptr;		//Read pointer 
@@ -25,7 +27,7 @@ logic [pointer_Size-1:0] rd_Ptr_Next;		//read pointer to be read next
 localparam buf_Depth = 1 << pointer_Size;	//FIFO depth 
 
 //memory declaration
-flit_Data memory[0:buf_Depth-1];
+flit_Data_noVC memory[0:buf_Depth-1];
 
 logic buf_Full_Next;		//Assers when the buf is becoming full in the next clock cycle
 logic buf_Empty_Next;		//Asserts when the buf is becoming empty in the next clock cycle 
@@ -46,7 +48,7 @@ always@(posedge clk, negedge rst_n)begin
 		buf_On_Off		<= 1;
 
 	end
-	//if reset is asserted then assigning the updated values to wr_Ptr, rd_Ptr, buf_full, buf_empty, num_Flits, buf_On_Off 
+	//if reset is deasserted then assigning the updated values to wr_Ptr, rd_Ptr, buf_full, buf_empty, num_Flits, buf_On_Off 
 	else begin 
 		
 		wr_Ptr 			<= wr_Ptr_Next;
@@ -68,7 +70,7 @@ always_comb begin
 		//read flit from the buf when it is not empty 
 		rd_Ptr_Next    = update_Ptr(rd_Ptr);
 		wr_Ptr_Next    = wr_Ptr;
-		buf_Empty_Next = isBufEmpty(rd_Ptr, wr_Ptr);
+		buf_Empty_Next = isBufEmpty(rd_Ptr_Next, wr_Ptr);
 		buf_Full_Next  = 0;
 		num_Flits_Next = num_Flits - 1;
 	end 
@@ -89,10 +91,10 @@ always_comb begin
 		num_Flits_Next = num_Flits;
 	end
 	//on_Off Algorithm logic 
-	if((num_Flits_Next < num_Flits) & (buf_Size -(num_Flits - num_Flits_Next) < on_Off_threshold)) begin 
+	if((num_Flits_Next < num_Flits) & (BUFFER_SIZE -(num_Flits - num_Flits_Next) < on_Off_threshold)) begin 
 		buf_On_Off_Next = 1;
 	end
-	else if ((num_Flits_Next > num_Flits) & (buf_Size -(num_Flits_Next - num_Flits) > on_Off_threshold)) begin
+	else if ((num_Flits_Next > num_Flits) & (BUFFER_SIZE -(num_Flits_Next - num_Flits) > on_Off_threshold)) begin
 		buf_On_Off_Next = 0;
 	end
 	else begin
@@ -100,9 +102,9 @@ always_comb begin
 	end
 end
 
-function logic update_Wr_Ptr(input logic [pointer_Size:0]ptr);
+function logic update_Ptr(input logic [pointer_Size:0]ptr);
 begin 
-	if(ptr == buf_Size-1)
+	if(ptr == BUFFER_SIZE-1)
 		ptr = 0;
 	else 
 		ptr = ptr + 1;
@@ -110,25 +112,16 @@ end
 endfunction 
 
 
-function logic update_Rd_Ptr([pointer_Size:0]wr_Ptr);
-begin 
-	if(buf_empty!=1)
-		rd_Ptr_Next = rd_Ptr + 1;
-	else 
-		rd_Ptr_Next = rd_Ptr;
-end 
-endfunction 
-
-function logic isBufFull() begin 
-	if(wr_Ptr != rd_Ptr)
+function logic isBufFull(input logic [pointer_Size:0]rd_Ptr, input logic [pointer_Size:0]wr_Ptr_Next); begin 
+	if(wr_Ptr_Next != rd_Ptr)
 		buf_full = 0;
 	else 
 		buf_full = 1;
 end
 endfunction
 
-function logic isBufEmpty() begin
-	if(wr_Ptr = rd_Ptr_Next)
+function logic isBufEmpty(input logic [pointer_Size:0]rd_Ptr_Next, input logic [pointer_Size:0]wr_Ptr); begin
+	if(wr_Ptr == rd_Ptr_Next)
 		buf_empty = 1;
 	else 
 		buf_empty = 0;

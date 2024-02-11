@@ -8,3 +8,96 @@ z2
 !i10f 100
 cModel Technology
 dC:/verilog projects/Asyncfifo/AsyncFifo
+vcircular_Buffer
+Z0 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z1 DXx4 work 10 params_noc 0 22 jUhMZ5>l>V9RTl@VG0mX61
+DXx4 work 23 circular_Buffer_sv_unit 0 22 QbQ^RhI;cH^li^g6Y;<D71
+VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+31
+!i10b 1
+!s100 d^1n:8X^A;R68M^N<8LdW3
+I2Tl4ONMcYXMaOE9M5<KI03
+!s105 circular_Buffer_sv_unit
+S1
+Z2 dC:/verilog projects/isha_NOC
+Z3 w1707689831
+Z4 8C:/verilog projects/isha_NOC/circular_Buffer.sv
+Z5 FC:/verilog projects/isha_NOC/circular_Buffer.sv
+L0 4
+Z6 OV;L;10.4d;61
+Z7 !s108 1707689897.000000
+Z8 !s107 C:/verilog projects/isha_NOC/circular_Buffer.sv|
+Z9 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/verilog projects/isha_NOC/circular_Buffer.sv|
+!i113 1
+Z10 o-work work -sv
+ncircular_@buffer
+Xcircular_Buffer_sv_unit
+R0
+R1
+VQbQ^RhI;cH^li^g6Y;<D71
+r1
+!s85 0
+31
+!i10b 1
+!s100 m23DcBIIQKbiZ7:NDlQ6U3
+IQbQ^RhI;cH^li^g6Y;<D71
+!i103 1
+S1
+R2
+R3
+R4
+R5
+L0 1
+R6
+R7
+R8
+R9
+!i113 1
+R10
+ncircular_@buffer_sv_unit
+Xparams
+R0
+!s110 1707672936
+!i10b 1
+!s100 AaM1cQVScj6oVOQN;Wg^01
+I:hlOIa4S>I2S0EUmoDHCZ1
+V:hlOIa4S>I2S0EUmoDHCZ1
+S1
+R2
+w1707672912
+Z11 8C:\verilog projects\isha_NOC\params.sv
+Z12 FC:\verilog projects\isha_NOC\params.sv
+L0 2
+R6
+r1
+!s85 0
+31
+!s108 1707672936.000000
+Z13 !s107 C:\verilog projects\isha_NOC\params.sv|
+Z14 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:\verilog projects\isha_NOC\params.sv|
+!i113 1
+R10
+Xparams_noc
+R0
+!s110 1707689897
+!i10b 1
+!s100 RbB5USEY0goPQRWiO7W@L2
+IjUhMZ5>l>V9RTl@VG0mX61
+VjUhMZ5>l>V9RTl@VG0mX61
+S1
+R2
+w1707674864
+R11
+R12
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+R13
+R14
+!i113 1
+R10
