@@ -42,7 +42,7 @@ typedef struct packed
 		packet_Header head_Data;
 		logic [flit_Size-1:0] flit;
 	}data;
-}flit_Data_withvc;
+} flit_Data_withvc;
 
 //structure to store either the header/body/tail/headtail depending upon the flit data label with no VC allocation 	
 typedef struct packed 
