@@ -1,5 +1,5 @@
-import params_noc::*;
-//'include "params.sv"
+//import params_noc::*;
+include "params.sv";
 
 module circular_Buffer #(parameter BUFFER_SIZE = 8)
 (
@@ -79,7 +79,7 @@ always_comb begin
 		rd_Ptr_Next    = rd_Ptr;
 		wr_Ptr_Next    = update_Ptr(wr_Ptr);
 		buf_Empty_Next = 0;
-		buf_Full_Next  = isBufFull(wr_Ptr);
+		buf_Full_Next  = isBufFull(wr_Ptr_Next, rd_Ptr);
 		num_Flits_Next = num_Flits + 1;
 	end
 	//Read Modify Write

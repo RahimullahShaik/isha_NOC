@@ -1,8 +1,9 @@
 
 `timescale 1ns/1ps
 
-//import  params_noc::*;
-include "params.sv";
+import  params_noc::*;
+//include "params.sv";
+
 module circular_Buffer_tb #(parameter BUFFER_SIZE = 8);
 
 
@@ -67,10 +68,10 @@ module circular_Buffer_tb #(parameter BUFFER_SIZE = 8);
   endtask
 
   task createflit();
-    new_Flit.flit_Data_Label                    = HEAD;
-    new_Flit.data.packet_Header.x_Dest          = {x_Des{op_Num}};
-    new_Flit.data.packet_Header.y_Dest          = {y_Des{op_Num}};
-    new_Flit.data.packet_Header.head_Payload    = {header_Payloadsize{op_Num}};
+    new_Flit.flit_DataLabel                    	<= HEAD;
+    new_Flit.data.head_Data.x_Dest          <= {x_Des{op_Num}};
+    new_Flit.data.head_Data.y_Dest          <= {y_Des{op_Num}};
+    new_Flit.data.head_Data.head_Payload    <= {header_Payloadsize{op_Num}};
   endtask
  
 

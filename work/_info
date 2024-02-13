@@ -22,12 +22,12 @@ I2Tl4ONMcYXMaOE9M5<KI03
 !s105 circular_Buffer_sv_unit
 S1
 Z3 dC:/verilog projects/isha_NOC
-Z4 w1707797525
+Z4 w1707841285
 Z5 8C:/verilog projects/isha_NOC/circular_Buffer.sv
 Z6 FC:/verilog projects/isha_NOC/circular_Buffer.sv
 L0 4
 Z7 OV;L;10.4d;61
-Z8 !s108 1707801274.000000
+Z8 !s108 1707842144.000000
 Z9 !s107 C:/verilog projects/isha_NOC/circular_Buffer.sv|
 Z10 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/verilog projects/isha_NOC/circular_Buffer.sv|
 !i113 1
@@ -59,34 +59,39 @@ R11
 ncircular_@buffer_sv_unit
 vcircular_Buffer_tb
 R0
-!i10b 1
-!s100 :OcU?57?T5SAD3oU6:WkL0
-IBNhi5h56dRlmlGdz>O1`k1
+R1
+DXx4 work 26 circular_Buffer_tb_sv_unit 0 22 OLCR3Ue6<l50cVY_9RblK1
 R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 abG<hB`e8KbnT;DAH8aWN0
+IaWc2nGWzanD91W9<Q`hKe0
 !s105 circular_Buffer_tb_sv_unit
 S1
 R3
-Z12 w1707799925
+Z12 w1707842141
 Z13 8C:\verilog projects\isha_NOC\circular_Buffer_tb.sv
 Z14 FC:\verilog projects\isha_NOC\circular_Buffer_tb.sv
-L0 6
+L0 7
 R7
-Z15 !s108 1707799928.000000
-Z16 !s107 C:\verilog projects\isha_NOC\circular_Buffer_tb.sv|
-Z17 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:\verilog projects\isha_NOC\circular_Buffer_tb.sv|
+R8
+Z15 !s107 C:\verilog projects\isha_NOC\circular_Buffer_tb.sv|
+Z16 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:\verilog projects\isha_NOC\circular_Buffer_tb.sv|
 !i113 1
 R11
 ncircular_@buffer_tb
 Xcircular_Buffer_tb_sv_unit
 R0
 R1
-Vb]G;QHejCN7hiRb[M0FKX0
+VOLCR3Ue6<l50cVY_9RblK1
 r1
 !s85 0
 31
 !i10b 1
-!s100 Xe7im;E<ShQmBOLj__<?61
-Ib]G;QHejCN7hiRb[M0FKX0
+!s100 60]cIG>0:af<20`cfGZf:2
+IOLCR3Ue6<l50cVY_9RblK1
 !i103 1
 S1
 R3
@@ -95,9 +100,9 @@ R13
 R14
 L0 4
 R7
+R8
 R15
 R16
-R17
 !i113 1
 R11
 ncircular_@buffer_tb_sv_unit
@@ -111,21 +116,21 @@ V:hlOIa4S>I2S0EUmoDHCZ1
 S1
 R3
 w1707672912
-Z18 8C:\verilog projects\isha_NOC\params.sv
-Z19 FC:\verilog projects\isha_NOC\params.sv
+Z17 8C:\verilog projects\isha_NOC\params.sv
+Z18 FC:\verilog projects\isha_NOC\params.sv
 L0 2
 R7
 r1
 !s85 0
 31
 !s108 1707672936.000000
-Z20 !s107 C:\verilog projects\isha_NOC\params.sv|
-Z21 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:\verilog projects\isha_NOC\params.sv|
+Z19 !s107 C:\verilog projects\isha_NOC\params.sv|
+Z20 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:\verilog projects\isha_NOC\params.sv|
 !i113 1
 R11
 Xparams_noc
 R0
-!s110 1707801274
+Z21 !s110 1707842144
 !i10b 1
 !s100 RbB5USEY0goPQRWiO7W@L2
 IjUhMZ5>l>V9RTl@VG0mX61
@@ -133,15 +138,84 @@ VjUhMZ5>l>V9RTl@VG0mX61
 S1
 R3
 w1707694912
+R17
 R18
-R19
 L0 2
 R7
 r1
 !s85 0
 31
 R8
+R19
 R20
+!i113 1
+R11
+Xstruct_param
+R0
 R21
+!i10b 1
+!s100 =oM@WhQdGHlM`lK7QgfIB1
+ICPD1f>TZJm:AZcL7zcjDk0
+VCPD1f>TZJm:AZcL7zcjDk0
+S1
+R3
+w1707839806
+8C:/verilog projects/isha_NOC/struct_param.sv
+FC:/verilog projects/isha_NOC/struct_param.sv
+L0 2
+R7
+r1
+!s85 0
+31
+R8
+!s107 C:/verilog projects/isha_NOC/struct_param.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/verilog projects/isha_NOC/struct_param.sv|
+!i113 1
+R11
+vstruct_test
+R0
+Z22 DXx4 work 12 struct_param 0 22 CPD1f>TZJm:AZcL7zcjDk0
+DXx4 work 19 struct_test_sv_unit 0 22 8<Dk=^P;Jd:8DMMaG[;<L3
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 bZE[6m]H9j?XH7cJU?:Y_3
+I8amXG8hn`B<FLi@B29K]61
+!s105 struct_test_sv_unit
+S1
+R3
+Z23 w1707841064
+Z24 8C:/verilog projects/isha_NOC/struct_test.sv
+Z25 FC:/verilog projects/isha_NOC/struct_test.sv
+L0 5
+R7
+R8
+Z26 !s107 C:/verilog projects/isha_NOC/struct_test.sv|
+Z27 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/verilog projects/isha_NOC/struct_test.sv|
+!i113 1
+R11
+Xstruct_test_sv_unit
+R0
+R22
+V8<Dk=^P;Jd:8DMMaG[;<L3
+r1
+!s85 0
+31
+!i10b 1
+!s100 ^joP68cKGBHULR848`:ZW2
+I8<Dk=^P;Jd:8DMMaG[;<L3
+!i103 1
+S1
+R3
+R23
+R24
+R25
+L0 3
+R7
+R8
+R26
+R27
 !i113 1
 R11

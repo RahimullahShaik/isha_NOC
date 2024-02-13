@@ -1,5 +1,5 @@
 import params_noc::*;
-//'include "params.sv"
+//include "params.sv";
 
 module circular_Buffer #(parameter BUFFER_SIZE = 8)
 (

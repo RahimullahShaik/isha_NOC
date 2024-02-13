@@ -1,8 +1,8 @@
 
 `timescale 1ns/1ps
 
-//import  params_noc::*;
-include "params.sv";
+import  params_noc::*;
+//include "params.sv";
 
 module circular_Buffer_tb #(parameter BUFFER_SIZE = 8);
 
@@ -21,7 +21,7 @@ module circular_Buffer_tb #(parameter BUFFER_SIZE = 8);
 
   
   initial begin 
-    output_VCD();
+    //output_VCD();
     initialize();
     createflit();
     rst_n = 1'b1;
@@ -49,16 +49,16 @@ module circular_Buffer_tb #(parameter BUFFER_SIZE = 8);
 
   
 
-  task output_VCD();
+  //task output_VCD();
     //this is the file where simulation output will be dumped during the simulation
-    $dumpfile ("circ_Buff_Out.vcd");
+    //$dumpfile ("circ_Buff_Out.vcd");
     //dump all the variables in the top level module here 0 represents the dumping mode i.e, it dumps the current values of the specified variables.
     //1: Dumps the changes to the specified variables since the last dump operation.
-    $dumpvars (0, circular_Buffer_tb);
-    for(i=0; i<BUFFER_SIZE; i++)
-        $dumpvars (0, cirbuf.memory[i]);
-    i=0;  
-  endtask
+    //$dumpvars (0, circular_Buffer_tb);
+    //for(i=0; i<BUFFER_SIZE; i++)
+        //$dumpvars (0, cirbuf.memory[i]);
+    //i=0;  
+  //endtask
 
   task initialize();
     clk     = 1'b1;
@@ -68,10 +68,10 @@ module circular_Buffer_tb #(parameter BUFFER_SIZE = 8);
   endtask
 
   task createflit();
-    new_Flit.flit_Data_Label                    <= HEAD;
-    new_Flit.data.packet_Header.x_Dest          <= {x_Des{op_Num}};
-    new_Flit.data.packet_Header.y_Dest          <= {y_Des{op_Num}};
-    new_Flit.data.packet_Header.head_Payload    <= {header_Payloadsize{op_Num}};
+    new_Flit.flit_DataLabel                    	<= HEAD;
+    new_Flit.data.head_Data.x_Dest          <= {x_Des{op_Num}};
+    new_Flit.data.head_Data.y_Dest          <= {y_Des{op_Num}};
+    new_Flit.data.head_Data.head_Payload    <= {header_Payloadsize{op_Num}};
   endtask
  
 
