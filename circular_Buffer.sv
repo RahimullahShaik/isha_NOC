@@ -98,11 +98,12 @@ always_comb begin
 		num_Flits_Next = num_Flits;
         end
 
-	//on_Off Algorithm logic 
-	if((num_Flits_Next < num_Flits) & (BUFFER_SIZE -(num_Flits - num_Flits_Next) < on_Off_threshold)) begin 
+	//on_Off Algorithm logic, buffer is turned on when number of flits is less than threshold 
+	if((num_Flits_Next < num_Flits) & (num_Flits_Next < on_Off_threshold)) begin 
 		buf_On_Off_Next = 1;
 	end
-	else if ((num_Flits_Next > num_Flits) & (BUFFER_SIZE -(num_Flits_Next - num_Flits) > on_Off_threshold)) begin
+	//Buffer turned off when number of flits is greater than the threshold 
+	else if ((num_Flits_Next > num_Flits) & (num_Flits_Next > BUFFER_SIZE - on_Off_threshold)) begin
 		buf_On_Off_Next = 0;
 	end
 	else begin
