@@ -14,7 +14,7 @@ module circular_Buffer #(parameter BUFFER_SIZE = 8)
 	output logic buf_On_Off						//signal to allow and disallow the incoming flits depending on the threshold set by us 
 	);
 
-localparam on_Off_threshold = 1;		//this is the threshold value which should, on and off the buffer i.e, if the count is 1 then we should
+localparam on_Off_threshold = 2;		//this is the threshold value which should, on and off the buffer i.e, if the count is 1 then we should
 						//start accepting the flits and if the count is 7 then we should stop accepting the flits
 localparam [31:0]pointer_Size = $clog2(BUFFER_SIZE);//pointer size of the buffer 
 
@@ -111,7 +111,7 @@ always_comb begin
 	end
 end
 
-function logic update_Ptr(input logic [pointer_Size:0]ptr);
+function logic[pointer_Size-1:0] update_Ptr(input logic [pointer_Size:0]ptr);
 begin 
 	if(ptr == BUFFER_SIZE-1)
 		ptr = 0;

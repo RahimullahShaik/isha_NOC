@@ -41,6 +41,24 @@ module circular_Buffer_tb #(parameter BUFFER_SIZE = 8);
     write_i = 1'b1;
     input_Data = new_Flit;
     @(posedge clk);
+    write_i = 1'b1;
+    input_Data = new_Flit;
+    @(posedge clk);
+    write_i = 1'b0;
+    createflit1();
+    @(posedge clk);
+    write_i = 1'b1;
+    input_Data = new_Flit;
+    @(posedge clk);
+    write_i = 1'b1;
+    input_Data = new_Flit;
+    @(posedge clk);
+    write_i = 1'b0;
+    createflit1();
+    @(posedge clk);
+    write_i = 1'b1;
+    input_Data = new_Flit;
+    @(posedge clk);
     write_i = 1'b0;
     read_i = 1'b1;
     $display("output data is %h", output_Data);
@@ -48,13 +66,14 @@ module circular_Buffer_tb #(parameter BUFFER_SIZE = 8);
     read_i = 1'b0;
     rst_n = 1'b0;
     $finish();
-  end*/ 
+  end*/
 
 initial begin 
 
   initialize();
   @(posedge clk);
   rst_n = 1'b1;
+  @(posedge clk);
   fork 
     $display("started doing randomn operations");
     repeat(5) rand_Op();
@@ -71,10 +90,10 @@ end
 //performing randomn operations 
   task rand_Op();
     j = $urandom_range(0,10);
-    if(j==8)
-      read_Flit();
-    else if(j>=3 & j<8)
+    if(j>=3 & j<8)
       write_Flit();
+    else if(j==0)
+      read_Flit();
     else 
       read_Write_Flit();
   endtask
@@ -83,9 +102,9 @@ end
   task read_Flit();
     flit_read = flit_Queue.pop_front();
     @(posedge clk);
-    read_i = 1;
-    write_i= 0;
-    op_Num = op_Num + 1;
+    read_i <= 1;
+    write_i<= 0;
+    op_Num <= op_Num + 1;
     @(negedge clk);
     flit_Verify(); 
   endtask
@@ -94,9 +113,9 @@ end
   task write_Flit();
     createflit();
     @(posedge clk);
-    read_i = 0;
-    write_i= 1;
-    input_Data = new_Flit;
+    read_i <= 0;
+    write_i<= 1;
+    input_Data <= new_Flit;
     flit_Queue.push_back(new_Flit);
     op_Num = op_Num + 1;
   endtask
@@ -106,9 +125,9 @@ end
     flit_read = flit_Queue.pop_front();
     createflit1();
     @(posedge clk);
-    read_i = 1;
-    write_i= 1;
-    input_Data = new_Flit;
+    read_i <= 1;
+    write_i<= 1;
+    input_Data <= new_Flit;
     flit_Queue.push_back(new_Flit);
     op_Num = op_Num + 1;
     @(negedge clk);
