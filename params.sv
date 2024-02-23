@@ -18,6 +18,11 @@ localparam flit_Size = x_Des + y_Des + header_Payloadsize;
 //flit_Data_Label to label which type of flit data is it 
 typedef enum logic [1:0] {HEAD, BODY, TAIL, HEADTAIL} flit_Data_Label;
 
+//input ports
+typedef enum logic [2:0] {LOCAL, NORTH, EAST, SOUTH, WEST} inout_Port;
+localparam in_Port_Cnt = 5;
+localparam in_port_Size = $clog2(in_Port_Cnt);
+
 //virtual channel number
 localparam vc_Num = 2;
 localparam VC_Size = $clog2(vc_Num);
