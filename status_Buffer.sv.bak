@@ -26,20 +26,22 @@ module status_Buffer #(parameter BUFFER_SIZE = 8)
 
 typedef enum logic [1:0] { IDLE, VC, SWITCH } state;
 state p_state, nxt_state;
+  logic [VC_Size-1:0] downstream_Vc_Next;
+  logic read_Cmd, write_Cmd;
+  logic end_Packet, end_Packet_Next;
+  logic vc_Alloc_next;
+  logic err_Next;
+  flit_Data_noVC read_flit;
+  inout_Port port_o_Next;
 
 always@(posedge clk, negedge rst_n) begin 
   if(!rst_n)begin
     p_state <= IDLE;
-    read_i <= 0;
-    write_i<= 0;
-    buf_empty<= 1;
-    buf_full<=0;
-    vc_Val<= 0;
-    buf_On_Off<= 0;
-    err<=0;
-    switch_Req<=0;
-    vc_Alloc<=1;
-    vc_Req<=0;
+    port_o          <= LOCAL;
+    downstream_Vc     <= 0;
+    end_Packet          <= 0;
+    vc_Alloc    <= 0;
+    err             <= 0;
   else 
     p_state <= nxt_state;
 end 
