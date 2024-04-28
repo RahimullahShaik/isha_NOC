@@ -2,8 +2,8 @@
 package params_noc;
 
 //X x Y mesh size
-localparam mesh_Size_X = 16;
-localparam mesh_Size_Y = 16;
+localparam mesh_Size_X = 6;
+localparam mesh_Size_Y = 6;
 
 //no of bits to assign to x and y coordinates of the destination to be stored in flit header 
 localparam x_Des = $clog2(mesh_Size_X);

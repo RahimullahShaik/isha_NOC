@@ -1,0 +1,10 @@
+import params_noc::*;
+
+//Verilog code for input port 
+//module input_Port#(
+	//parameter buf_Size = 8,
+	//parameter x_Current = mesh_Size_X/2,
+	//parameter y_Current = mesh_Size_Y/2,
+//)
+
+//endmodule
