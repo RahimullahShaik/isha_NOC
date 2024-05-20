@@ -125,9 +125,9 @@ end
     flit_read = flit_Queue.pop_front();
     createflit1();
     @(posedge clk);
-    read_i = 1;
-    write_i= 1;
-    input_Data = new_Flit;
+    read_i <= 1;
+    write_i<= 1;
+    input_Data <= new_Flit;
     flit_Queue.push_back(new_Flit);
     op_Num = op_Num + 1;
     @(negedge clk);

@@ -6,14 +6,14 @@ localparam mesh_Size_X = 6;
 localparam mesh_Size_Y = 6;
 
 //no of bits to assign to x and y coordinates of the destination to be stored in flit header 
-localparam x_Des = $clog2(mesh_Size_X);
-localparam y_Des = $clog2(mesh_Size_Y);
+localparam x_Des_Addr_Size = $clog2(mesh_Size_X);
+localparam y_Des_Addr_Size = $clog2(mesh_Size_Y);
 
 //payload size of the header
 localparam header_Payloadsize = 16;
 
 //packet size 
-localparam flit_Size = x_Des + y_Des + header_Payloadsize;
+localparam flit_Size = x_Des_Addr_Size + y_Des_Addr_Size + header_Payloadsize;
 
 //flit_Data_Label to label which type of flit data is it 
 typedef enum logic [1:0] {HEAD, BODY, TAIL, HEADTAIL} flit_Data_Label;
@@ -30,8 +30,8 @@ localparam VC_Size = $clog2(vc_Num);
 //structure to store header data 
 typedef struct packed
 {
-	logic [x_Des-1:0] x_Dest;
-	logic [y_Des-1:0] y_Dest;
+	logic [x_Des_Addr_Size-1:0] x_Dest;
+	logic [y_Des_Addr_Size-1:0] y_Dest;
 	logic [header_Payloadsize-1:0] head_Payload;
 } packet_Header;
 

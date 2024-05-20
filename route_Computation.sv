@@ -6,18 +6,19 @@ module route_Computation #(
 	parameter x_Des_Addr_Size,
 	parameter y_Des_Addr_Size)
 
-( input logic [x_Des_Addr_Size-1:0] x_Des,
-  input logic [y_Des_Addr_Size-1:0] y_Des,
+( input logic [x_Des_Addr_Size-1:0] x_Dest,
+  input logic [y_Des_Addr_Size-1:0] y_Dest,
   output inout_Port port );
 
   wire [x_Des_Addr_Size-1:0]x_Offset;
   wire [y_Des_Addr_Size-1:0]y_Offset;
 
-  assign x_Offset =  x_Des - x_Current;
-  assign y_Offset =  y_Des - y_Current;
-
+  assign x_Offset =  x_Dest - x_Current;
+  assign y_Offset =  y_Dest - y_Current;
+  
 always_comb begin 
-
+  $display("xDes and yDes values in verilog module are %h, %h", x_Dest, y_Dest);
+  $display("xoff and yoff values in verilog module are %h, %h", x_Offset, y_Offset);
   //unique if is used as it gives out error if there are multiple matches 
   //the following logic tells us the direction of the next hop
   unique if(x_Offset < 0)
