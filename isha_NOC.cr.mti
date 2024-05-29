@@ -1,13 +1,4 @@
-{C:/verilog projects/isha_NOC/route_Computation.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/route_Computation.sv}
-Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
--- Compiling package route_Computation_sv_unit
--- Importing package params_noc
--- Compiling module route_Computation
-
-Top level modules:
-	route_Computation
-
-} {} {}} {C:/verilog projects/isha_NOC/status_Buffer.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/status_Buffer.sv}
+{C:/verilog projects/isha_NOC/status_Buffer.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/status_Buffer.sv}
 Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
 -- Compiling package status_Buffer_sv_unit
 -- Importing package params_noc
@@ -15,6 +6,15 @@ Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
 
 Top level modules:
 	status_Buffer
+
+} {} {}} {C:/verilog projects/isha_NOC/route_Computation.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/route_Computation.sv}
+Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling package route_Computation_sv_unit
+-- Importing package params_noc
+-- Compiling module route_Computation
+
+Top level modules:
+	route_Computation
 
 } {} {}} {C:/verilog projects/isha_NOC/circular_Buffer.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/circular_Buffer.sv}
 Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
