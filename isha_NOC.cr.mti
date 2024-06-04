@@ -16,6 +16,15 @@ Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
 Top level modules:
 	route_Computation
 
+} {} {}} {C:/verilog projects/isha_NOC/route_computation_tb.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/route_computation_tb.sv}
+Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling package route_computation_tb_sv_unit
+-- Importing package params_noc
+-- Compiling module route_computation_tb
+
+Top level modules:
+	route_computation_tb
+
 } {} {}} {C:/verilog projects/isha_NOC/circular_Buffer.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/circular_Buffer.sv}
 Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
 -- Compiling package circular_Buffer_sv_unit
