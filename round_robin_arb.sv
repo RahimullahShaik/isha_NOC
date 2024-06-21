@@ -52,6 +52,7 @@ end
 //Acess grant logic 
 always_comb begin 
   grant = {num_Agents{1'b0}}; //resetting the requestor grant priority 
+  //next_current_Priority_Requestor = current_Priority_Requestor; //resetting next current priority
   for (int i=0; i<num_Agents; i++)begin
     if(request[(current_Priority_Requestor + i)%num_Agents]) begin 
       grant[(current_Priority_Requestor + i)%num_Agents] = 1;

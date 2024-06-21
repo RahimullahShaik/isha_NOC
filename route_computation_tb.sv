@@ -1,4 +1,4 @@
-`timescale 1ps / 1ps
+`timescale 1ns / 1ps
 //tb for route computation unit 
 import params_noc::*;
 

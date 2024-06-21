@@ -30,10 +30,10 @@ always@(posedge clk, negedge rst_n) begin
       Starv_count[i] <= 4'b0;
     else 
       if(request[i] & !grant[i]) begin 
-        Starv_count[i] = Starv_count[i] + 1;
+        Starv_count[i] <= Starv_count[i] + 1;
       end
       else 
-        Starv_count[i] = 1'b0; //we need to reset the counter if access has been granted 
+        Starv_count[i] <= 1'b0; //we need to reset the counter if access has been granted 
     end
 end 
 	
@@ -52,6 +52,7 @@ end
 //Acess grant logic 
 always_comb begin 
   grant = {num_Agents{1'b0}}; //resetting the requestor grant priority 
+  next_current_Priority_Requestor = current_Priority_Requestor; //resetting next current priority
   for (int i=0; i<num_Agents; i++)begin
     if(request[(current_Priority_Requestor + i)%num_Agents]) begin 
       grant[(current_Priority_Requestor + i)%num_Agents] = 1;

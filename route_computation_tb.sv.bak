@@ -68,16 +68,16 @@ endtask
 
 function logic check_dest();
   if(x_Dest < x_Current & portout == WEST)
-     check_dest <= 0;
+     check_dest = 0;
   else if(x_Dest > x_Current & portout == EAST)
-     check_dest <= 0;
+     check_dest = 0;
   else if(x_Dest == x_Current & y_Dest < y_Current & portout == NORTH)
-     check_dest <= 0;
+     check_dest = 0;
   else if(x_Dest == x_Current & y_Dest > y_Current & portout == SOUTH)
-      check_dest <= 0;
+      check_dest = 0;
   else if(x_Dest == x_Current & y_Dest == y_Current & portout == LOCAL)
-      check_dest <= 0;
+      check_dest = 0;
   else
-       check_dest <= 1;
+       check_dest = 1;
   endfunction
 endmodule
