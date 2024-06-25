@@ -11,10 +11,10 @@ module round_robin_arb#(parameter num_Agents = 4)
  
   logic [req_priority_size -1 :0] current_Priority_Requestor;       //current highest priority given to a requestor
   logic [req_priority_size - 1 :0]next_current_Priority_Requestor;  //next highest priority given to a requestor 
-  logic [num_Agents - 1 :0]starvation;
+  logic starvation;
 
   logic [num_Agents - 1 :0] Starv_count[num_Agents - 1 :0];
-  localparam starvation_Threshold = 3;
+  localparam starvation_Threshold = 1;
 //reset priority on reset 
 always@(posedge clk, negedge rst_n)begin 
   if(!rst_n)
@@ -39,14 +39,14 @@ end
 	
 always@(posedge clk, negedge rst_n) begin 
   if(!rst_n) 
-    starvation <= 4'b0;
+    starvation <= 1'b0;
   else 
     for(int i=0; i<num_Agents; i++) begin 
       if(Starv_count[i] > starvation_Threshold) begin 
-        starvation[i] <= 1'b1;
+        starvation <= 1'b1;
       end
       else 
-	starvation[i] <= 1'b0;
+	starvation <= 1'b0;
     end
 end
 //Acess grant logic 
@@ -55,8 +55,8 @@ always_comb begin
   //next_current_Priority_Requestor = current_Priority_Requestor; //resetting next current priority
   for (int i=0; i<num_Agents; i++)begin
     if(request[(current_Priority_Requestor + i)%num_Agents]) begin 
-      grant[(current_Priority_Requestor + i)%num_Agents] = 1;
-      next_current_Priority_Requestor = ((current_Priority_Requestor + i)%num_Agents) + 1;
+      grant[(current_Priority_Requestor + i)%num_Agents] = 1'b1;
+      next_current_Priority_Requestor = ((current_Priority_Requestor + i+ 1)%num_Agents);
       break; //grant only to the first priority requestor 
     end
   end 
