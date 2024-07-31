@@ -12,6 +12,19 @@ module in_out_allocator#(parameter vc_Num = 4, port_Num = 5)(
     logic [PORT_NUM-1:0][PORT_NUM-1:0] ip_grant;
     logic [PORT_NUM-1:0][VC_NUM-1:0] vc_grant;
 
+genvar i;
+generate 
+	for(i=0; i<port_Num; i++)
+	begin
+		round_robin_arb #parameter(.num_Agents(vc_Num)) rrb (.request(request_in[i]), .grant(grant_o[i]), .clk(clk), .rst_n(rst_n));
+	end
+endgenerate
 
-round_robin_arb #parameter(.num_Agents(vc_Num)) rrb (.request(request_in), .grant(grant_o), .clk(clk), .rst_n(rst_n));
+genvar j;
+generate
+	for(j=0; j<port_Num; j++)
+	begin 
+		round_robin_arb #parameter(.num_Agents(vc_Num)) rrb (.request(out_request[i]), .grant(ip_grant[i]), .clk(clk), .rst_n(rst_n));
+	end 
+endgenerate
 endmodule
