@@ -13,7 +13,7 @@ module round_robin_arb#(parameter num_Agents = 4)
   logic [req_priority_size - 1 :0]next_current_Priority_Requestor;  //next highest priority given to a requestor 
   logic starvation;
 
-  logic [num_Agents - 1 :0] Starv_count[num_Agents - 1 :0];
+  logic [num_Agents - 1 :0] Starv_count[num_Agents - 1 :0]; //4 bit starvation counter for each requestor 
   localparam starvation_Threshold = 1;
 //reset priority on reset 
 always@(posedge clk, negedge rst_n)begin 
@@ -30,7 +30,7 @@ always@(posedge clk, negedge rst_n) begin
       Starv_count[i] <= 4'b0;
     else 
       if(request[i] & !grant[i]) begin 
-        Starv_count[i] <= Starv_count[i] + 1;
+        Starv_count[i] <= Starv_count[i] + 1;		//incrementing the counter when access is not granted 
       end
       else 
         Starv_count[i] <= 1'b0; //we need to reset the counter if access has been granted 
@@ -43,7 +43,7 @@ always@(posedge clk, negedge rst_n) begin
   else 
     for(int i=0; i<num_Agents; i++) begin 
       if(Starv_count[i] > starvation_Threshold) begin 
-        starvation <= 1'b1;
+        starvation <= 1'b1; 	//setting the starvation bit if starvation count is greater than the threshold for a requestor
       end
       else 
 	starvation <= 1'b0;
