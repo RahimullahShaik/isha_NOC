@@ -36,7 +36,7 @@ always_comb begin : stages_block
 out_request = 1'b0;
 grant_o = 1'b0;
 
-//We are computing an array out_request such that at each output port we get the respective input ports which have an active transaction in their VC's 
+//We are computing an array out_request such that at each output port we get the respective input ports which have an active transaction in their VC's `
 for(port =0; port<port_Num; port++) begin 
   for(vc = 0; vc <vc_Num; vc++) begin 
     if(vc_grant[port][vc] == 1)begin 
@@ -46,7 +46,15 @@ for(port =0; port<port_Num; port++) begin
   end
 end
       
-  
+for(out_p=0; out_p <port_Num; out_p++) begin
+  for(in_p=0; in_p<port_Num; in_p++) begin
+    for(vc=0; vc<vc_Num; vc++) begin
+      if(ip_grant[out_p][in_p] & vc_grant[in_p][vc])begin
+        grant_o[in_p][vc] = 1'b1;
+        break;
+        end
+    end
+  end
 end
 
 endmodule
