@@ -1,11 +1,9 @@
-{C:/verilog projects/isha_NOC/status_Buffer.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/status_Buffer.sv}
+{C:/verilog projects/isha_NOC/round_robin_arb.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/round_robin_arb.sv}
 Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
--- Compiling package status_Buffer_sv_unit
--- Importing package params_noc
--- Compiling module status_Buffer
+-- Compiling module round_robin_arb
 
 Top level modules:
-	status_Buffer
+	round_robin_arb
 
 } {} {}} {C:/verilog projects/isha_NOC/route_Computation.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/route_Computation.sv}
 Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
@@ -16,14 +14,30 @@ Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
 Top level modules:
 	route_Computation
 
-} {} {}} {C:/verilog projects/isha_NOC/route_computation_tb.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/route_computation_tb.sv}
+} {} {}} {C:/verilog projects/isha_NOC/status_Buffer.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/status_Buffer.sv}
 Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
--- Compiling package route_computation_tb_sv_unit
+-- Compiling package status_Buffer_sv_unit
 -- Importing package params_noc
--- Compiling module route_computation_tb
+-- Compiling module status_Buffer
 
 Top level modules:
-	route_computation_tb
+	status_Buffer
+
+} {} {}} {C:/verilog projects/isha_NOC/in_out_allocator.sv} {1 {vlog -work work -sv -stats=none {C:\verilog projects\isha_NOC\in_out_allocator.sv}
+Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling package in_out_allocator_sv_unit
+-- Importing package params_noc
+-- Compiling module in_out_allocator
+
+Top level modules:
+	in_out_allocator
+
+} {} {}} {C:/verilog projects/isha_NOC/round_Robin_tb.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/round_Robin_tb.sv}
+Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling module round_Robin_tb
+
+Top level modules:
+	round_Robin_tb
 
 } {} {}} {C:/verilog projects/isha_NOC/circular_Buffer.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/circular_Buffer.sv}
 Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
@@ -34,21 +48,16 @@ Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
 Top level modules:
 	circular_Buffer
 
-} {} {}} {C:/verilog projects/isha_NOC/round_Robin_tb.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/round_Robin_tb.sv}
+} {} {}} {C:/verilog projects/isha_NOC/route_computation_tb.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/route_computation_tb.sv}
 Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
--- Compiling module round_Robin_tb
+-- Compiling package route_computation_tb_sv_unit
+-- Importing package params_noc
+-- Compiling module route_computation_tb
 
 Top level modules:
-	round_Robin_tb
+	route_computation_tb
 
-} {} {}} {C:/verilog projects/isha_NOC/in_out_allocator.sv} {0 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/in_out_allocator.sv}
-Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-** Error (suppressible): C:/verilog projects/isha_NOC/in_out_allocator.sv(4): (vlog-13169) Packed dimension must specify a range.
-
-** Error: (vlog-13069) C:/verilog projects/isha_NOC/in_out_allocator.sv(4): near ";": syntax error, unexpected ';', expecting ')'.
-
-
-} {5.0 6.0} {}} {C:/verilog projects/isha_NOC/circular_Buffer_tb.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/circular_Buffer_tb.sv}
+} {} {}} {C:/verilog projects/isha_NOC/circular_Buffer_tb.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/circular_Buffer_tb.sv}
 Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
 -- Compiling package circular_Buffer_tb_sv_unit
 -- Importing package params_noc
@@ -57,15 +66,15 @@ Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
 Top level modules:
 	circular_Buffer_tb
 
-} {} {}} {C:/verilog projects/isha_NOC/input_Port.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/input_Port.sv}
+} {} {}} {C:/verilog projects/isha_NOC/params.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/params.sv}
 Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling package params_noc
 
 Top level modules:
 	--none--
 
-} {} {}} {C:/verilog projects/isha_NOC/params.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/params.sv}
+} {} {}} {C:/verilog projects/isha_NOC/input_Port.sv} {1 {vlog -work work -sv -stats=none {C:/verilog projects/isha_NOC/input_Port.sv}
 Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
--- Compiling package params_noc
 
 Top level modules:
 	--none--
