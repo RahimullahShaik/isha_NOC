@@ -1,16 +1,16 @@
 
 module round_robin_arb#(parameter num_Agents = 4)
 (
-  input [num_Agents - 1:0]request,
-  output logic [num_Agents - 1:0]grant,
+  input [num_Agents-1:0]request,
+  output logic [num_Agents-1:0]grant,
   input clk,
   input rst_n
 );
   localparam[31:0] req_priority_size = $clog2(num_Agents);
   //grant_priority_size = $clog2(grant);
  
-  logic [req_priority_size -1 :0] current_Priority_Requestor;       //current highest priority given to a requestor
-  logic [req_priority_size - 1 :0]next_current_Priority_Requestor;  //next highest priority given to a requestor 
+  logic [req_priority_size-1:0] current_Priority_Requestor;       //current highest priority given to a requestor
+  logic [req_priority_size-1:0]next_current_Priority_Requestor;  //next highest priority given to a requestor 
   logic starvation;
 
   logic [num_Agents - 1 :0] Starv_count[num_Agents - 1 :0]; //4 bit starvation counter for each requestor 

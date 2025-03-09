@@ -27,7 +27,7 @@ generate
   //send the transaction to this output port 
 	for(j=0; j<in_Port_Cnt; j++)
     begin 
-      round_robin_arb #(.num_Agents(vc_Num)) rrb (.request(out_request[j]), .grant(ip_grant[j]), .clk(clk), .rst_n(rst_n));
+      round_robin_arb #(.num_Agents(in_Port_Cnt)) rrb (.request(out_request[j]), .grant(ip_grant[j]), .clk(clk), .rst_n(rst_n));
     end 
 endgenerate
 

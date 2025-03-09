@@ -24,7 +24,7 @@ localparam in_Port_Cnt = 5;
 localparam in_port_Size = $clog2(in_Port_Cnt);
 
 //virtual channel number
-localparam vc_Num = 2;
+localparam vc_Num = 4;
 localparam VC_Size = $clog2(vc_Num);
 
 //structure to store header data 

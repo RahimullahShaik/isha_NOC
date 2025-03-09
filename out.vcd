@@ -1,0 +1,838 @@
+$date
+	Sun Mar 09 16:02:03 2025
+$end
+$version
+	ModelSim Version 10.4d
+$end
+$timescale
+	1ps
+$end
+
+$scope module in_out_allocator_tb $end
+$var parameter 32 ! vc_Num $end
+$var parameter 32 " AGENTS_PTR_SIZE_IN $end
+$var parameter 32 # AGENTS_PTR_SIZE_OUT $end
+$var reg 1 $ clk $end
+$var reg 1 % rst_n $end
+$var reg 20 & request_in [19:0] $end
+$var reg 10 ' curr_highest_priority_vc [9:0] $end
+$var reg 10 ( next_highest_priority_vc [9:0] $end
+$var reg 15 ) curr_highest_priority_ip [14:0] $end
+$var reg 15 * next_highest_priority_ip [14:0] $end
+$var reg 20 + vc_grant_gen [19:0] $end
+$var reg 25 , ip_grant_gen [24:0] $end
+$var reg 25 - out_request_gen [24:0] $end
+$var reg 20 . grant_o_gen [19:0] $end
+$var wire 1 / grants [0] $end
+$var wire 1 0 grants [1] $end
+$var wire 1 1 grants [2] $end
+$var wire 1 2 grants [3] $end
+$var wire 1 3 grants [4] $end
+$var wire 1 4 grants [5] $end
+$var wire 1 5 grants [6] $end
+$var wire 1 6 grants [7] $end
+$var wire 1 7 grants [8] $end
+$var wire 1 8 grants [9] $end
+$var wire 1 9 grants [10] $end
+$var wire 1 : grants [11] $end
+$var wire 1 ; grants [12] $end
+$var wire 1 < grants [13] $end
+$var wire 1 = grants [14] $end
+$var wire 1 > grants [15] $end
+$var wire 1 ? grants [16] $end
+$var wire 1 @ grants [17] $end
+$var wire 1 A grants [18] $end
+$var wire 1 B grants [19] $end
+$var reg 15 C ports [14:0] $end
+
+$scope task dump_output $end
+$upscope $end
+
+$scope task initialize $end
+$upscope $end
+
+$scope task clear_reset $end
+$upscope $end
+
+$scope task test $end
+$upscope $end
+
+$scope task gen_vc_grant $end
+$var integer 32 D k $end
+$upscope $end
+
+$scope task gen_ip_grant $end
+$var integer 32 E k $end
+$upscope $end
+
+$scope task gen_out_request $end
+$upscope $end
+
+$scope task gen_grant_o $end
+$upscope $end
+
+$scope task check_matrices $end
+$upscope $end
+
+$scope module iobuff $end
+$var parameter 32 F vc_Num $end
+$var wire 1 G request_in [0] $end
+$var wire 1 H request_in [1] $end
+$var wire 1 I request_in [2] $end
+$var wire 1 J request_in [3] $end
+$var wire 1 K request_in [4] $end
+$var wire 1 L request_in [5] $end
+$var wire 1 M request_in [6] $end
+$var wire 1 N request_in [7] $end
+$var wire 1 O request_in [8] $end
+$var wire 1 P request_in [9] $end
+$var wire 1 Q request_in [10] $end
+$var wire 1 R request_in [11] $end
+$var wire 1 S request_in [12] $end
+$var wire 1 T request_in [13] $end
+$var wire 1 U request_in [14] $end
+$var wire 1 V request_in [15] $end
+$var wire 1 W request_in [16] $end
+$var wire 1 X request_in [17] $end
+$var wire 1 Y request_in [18] $end
+$var wire 1 Z request_in [19] $end
+$var wire 1 [ clk $end
+$var wire 1 \ rst_n $end
+$var reg 20 ] grant_o [19:0] $end
+$var reg 25 ^ out_request [24:0] $end
+$var reg 25 _ ip_grant [24:0] $end
+$var reg 20 ` vc_grant [19:0] $end
+
+$scope begin genblk2[4] $end
+$var parameter 32 a j $end
+
+$scope module rrb $end
+$var parameter 32 b num_Agents $end
+$var parameter 32 c req_priority_size $end
+$var parameter 32 d starvation_Threshold $end
+$var wire 1 e request [4] $end
+$var wire 1 f request [3] $end
+$var wire 1 g request [2] $end
+$var wire 1 h request [1] $end
+$var wire 1 i request [0] $end
+$var reg 5 j grant [4:0] $end
+$var wire 1 [ clk $end
+$var wire 1 \ rst_n $end
+$var reg 3 k current_Priority_Requestor [2:0] $end
+$var reg 3 l next_current_Priority_Requestor [2:0] $end
+$var reg 1 m starvation $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[3] $end
+$var parameter 32 n j $end
+
+$scope module rrb $end
+$var parameter 32 o num_Agents $end
+$var parameter 32 p req_priority_size $end
+$var parameter 32 q starvation_Threshold $end
+$var wire 1 r request [4] $end
+$var wire 1 s request [3] $end
+$var wire 1 t request [2] $end
+$var wire 1 u request [1] $end
+$var wire 1 v request [0] $end
+$var reg 5 w grant [4:0] $end
+$var wire 1 [ clk $end
+$var wire 1 \ rst_n $end
+$var reg 3 x current_Priority_Requestor [2:0] $end
+$var reg 3 y next_current_Priority_Requestor [2:0] $end
+$var reg 1 z starvation $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[2] $end
+$var parameter 32 { j $end
+
+$scope module rrb $end
+$var parameter 32 | num_Agents $end
+$var parameter 32 } req_priority_size $end
+$var parameter 32 ~ starvation_Threshold $end
+$var wire 1 !! request [4] $end
+$var wire 1 "! request [3] $end
+$var wire 1 #! request [2] $end
+$var wire 1 $! request [1] $end
+$var wire 1 %! request [0] $end
+$var reg 5 &! grant [4:0] $end
+$var wire 1 [ clk $end
+$var wire 1 \ rst_n $end
+$var reg 3 '! current_Priority_Requestor [2:0] $end
+$var reg 3 (! next_current_Priority_Requestor [2:0] $end
+$var reg 1 )! starvation $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[1] $end
+$var parameter 32 *! j $end
+
+$scope module rrb $end
+$var parameter 32 +! num_Agents $end
+$var parameter 32 ,! req_priority_size $end
+$var parameter 32 -! starvation_Threshold $end
+$var wire 1 .! request [4] $end
+$var wire 1 /! request [3] $end
+$var wire 1 0! request [2] $end
+$var wire 1 1! request [1] $end
+$var wire 1 2! request [0] $end
+$var reg 5 3! grant [4:0] $end
+$var wire 1 [ clk $end
+$var wire 1 \ rst_n $end
+$var reg 3 4! current_Priority_Requestor [2:0] $end
+$var reg 3 5! next_current_Priority_Requestor [2:0] $end
+$var reg 1 6! starvation $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[0] $end
+$var parameter 32 7! j $end
+
+$scope module rrb $end
+$var parameter 32 8! num_Agents $end
+$var parameter 32 9! req_priority_size $end
+$var parameter 32 :! starvation_Threshold $end
+$var wire 1 ;! request [4] $end
+$var wire 1 <! request [3] $end
+$var wire 1 =! request [2] $end
+$var wire 1 >! request [1] $end
+$var wire 1 ?! request [0] $end
+$var reg 5 @! grant [4:0] $end
+$var wire 1 [ clk $end
+$var wire 1 \ rst_n $end
+$var reg 3 A! current_Priority_Requestor [2:0] $end
+$var reg 3 B! next_current_Priority_Requestor [2:0] $end
+$var reg 1 C! starvation $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk1[4] $end
+$var parameter 32 D! i $end
+
+$scope module rrb $end
+$var parameter 32 E! num_Agents $end
+$var parameter 32 F! req_priority_size $end
+$var parameter 32 G! starvation_Threshold $end
+$var wire 1 Z request [3] $end
+$var wire 1 Y request [2] $end
+$var wire 1 X request [1] $end
+$var wire 1 W request [0] $end
+$var reg 4 H! grant [3:0] $end
+$var wire 1 [ clk $end
+$var wire 1 \ rst_n $end
+$var reg 2 I! current_Priority_Requestor [1:0] $end
+$var reg 2 J! next_current_Priority_Requestor [1:0] $end
+$var reg 1 K! starvation $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk1[3] $end
+$var parameter 32 L! i $end
+
+$scope module rrb $end
+$var parameter 32 M! num_Agents $end
+$var parameter 32 N! req_priority_size $end
+$var parameter 32 O! starvation_Threshold $end
+$var wire 1 V request [3] $end
+$var wire 1 U request [2] $end
+$var wire 1 T request [1] $end
+$var wire 1 S request [0] $end
+$var reg 4 P! grant [3:0] $end
+$var wire 1 [ clk $end
+$var wire 1 \ rst_n $end
+$var reg 2 Q! current_Priority_Requestor [1:0] $end
+$var reg 2 R! next_current_Priority_Requestor [1:0] $end
+$var reg 1 S! starvation $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk1[2] $end
+$var parameter 32 T! i $end
+
+$scope module rrb $end
+$var parameter 32 U! num_Agents $end
+$var parameter 32 V! req_priority_size $end
+$var parameter 32 W! starvation_Threshold $end
+$var wire 1 R request [3] $end
+$var wire 1 Q request [2] $end
+$var wire 1 P request [1] $end
+$var wire 1 O request [0] $end
+$var reg 4 X! grant [3:0] $end
+$var wire 1 [ clk $end
+$var wire 1 \ rst_n $end
+$var reg 2 Y! current_Priority_Requestor [1:0] $end
+$var reg 2 Z! next_current_Priority_Requestor [1:0] $end
+$var reg 1 [! starvation $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk1[1] $end
+$var parameter 32 \! i $end
+
+$scope module rrb $end
+$var parameter 32 ]! num_Agents $end
+$var parameter 32 ^! req_priority_size $end
+$var parameter 32 _! starvation_Threshold $end
+$var wire 1 N request [3] $end
+$var wire 1 M request [2] $end
+$var wire 1 L request [1] $end
+$var wire 1 K request [0] $end
+$var reg 4 `! grant [3:0] $end
+$var wire 1 [ clk $end
+$var wire 1 \ rst_n $end
+$var reg 2 a! current_Priority_Requestor [1:0] $end
+$var reg 2 b! next_current_Priority_Requestor [1:0] $end
+$var reg 1 c! starvation $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk1[0] $end
+$var parameter 32 d! i $end
+
+$scope module rrb $end
+$var parameter 32 e! num_Agents $end
+$var parameter 32 f! req_priority_size $end
+$var parameter 32 g! starvation_Threshold $end
+$var wire 1 J request [3] $end
+$var wire 1 I request [2] $end
+$var wire 1 H request [1] $end
+$var wire 1 G request [0] $end
+$var reg 4 h! grant [3:0] $end
+$var wire 1 [ clk $end
+$var wire 1 \ rst_n $end
+$var reg 2 i! current_Priority_Requestor [1:0] $end
+$var reg 2 j! next_current_Priority_Requestor [1:0] $end
+$var reg 1 k! starvation $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0$
+1%
+bx &
+b0 '
+bx (
+b0 )
+bx *
+b0 +
+b0 ,
+b0 -
+b0 .
+b1011100010 C
+b0 ]
+b0 ^
+b0 _
+b0 `
+b0 h!
+bx i!
+bx j!
+xk!
+b0 `!
+bx a!
+bx b!
+xc!
+b0 X!
+bx Y!
+bx Z!
+x[!
+b0 P!
+bx Q!
+bx R!
+xS!
+b0 H!
+bx I!
+bx J!
+xK!
+b0 @!
+bx A!
+bx B!
+xC!
+b0 3!
+bx 4!
+bx 5!
+x6!
+b0 &!
+bx '!
+bx (!
+x)!
+b0 w
+bx x
+bx y
+xz
+b0 j
+bx k
+bx l
+xm
+b100 !
+b10 "
+b11 #
+b100 F
+b0 d!
+b100 e!
+b10 f!
+b1 g!
+b1 \!
+b100 ]!
+b10 ^!
+b1 _!
+b10 T!
+b100 U!
+b10 V!
+b1 W!
+b11 L!
+b100 M!
+b10 N!
+b1 O!
+b100 D!
+b100 E!
+b10 F!
+b1 G!
+b0 7!
+b101 8!
+b11 9!
+b1 :!
+b1 *!
+b101 +!
+b11 ,!
+b1 -!
+b10 {
+b101 |
+b11 }
+b1 ~
+b11 n
+b101 o
+b11 p
+b1 q
+b100 a
+b101 b
+b11 c
+b1 d
+b0 D
+b0 E
+0/
+00
+01
+02
+03
+04
+05
+06
+07
+08
+09
+0:
+0;
+0<
+0=
+0>
+0?
+0@
+0A
+0B
+0[
+1\
+xG
+xH
+xI
+xJ
+xK
+xL
+xM
+xN
+xO
+xP
+xQ
+xR
+xS
+xT
+xU
+xV
+xW
+xX
+xY
+xZ
+0?!
+0>!
+0=!
+0<!
+0;!
+02!
+01!
+00!
+0/!
+0.!
+0%!
+0$!
+0#!
+0"!
+0!!
+0v
+0u
+0t
+0s
+0r
+0i
+0h
+0g
+0f
+0e
+$end
+#5000
+1$
+1[
+0k!
+0c!
+0[!
+0S!
+0K!
+0C!
+06!
+0)!
+0z
+0m
+0%
+0\
+b0 i!
+b0 a!
+b0 Y!
+b0 Q!
+b0 I!
+b0 A!
+b0 4!
+b0 '!
+b0 x
+b0 k
+#10000
+0$
+0[
+#15000
+1$
+1[
+bx0100 &
+bx00 (
+b100 +
+bx11 (
+b11 '
+bx00010100 &
+b1 D
+bx0011 (
+b10100 +
+bx0111 (
+b111 '
+bx100100010100 &
+b10 D
+bx000111 (
+b100010100 +
+bx010111 (
+b10111 '
+bx0011100100010100 &
+b11 D
+bx00010111 (
+b1000100010100 +
+bx01010111 (
+b1010111 '
+b11010011100100010100 &
+b100 D
+b1010111 (
+b10001000100010100 +
+b101010111 (
+b101010111 '
+b1000000000000000 -
+b0 -
+b1000000000000000 -
+b1000000001000000 -
+b0 -
+b1000000000000000 -
+b1000000001000000 -
+b1000000001000100 -
+b0 -
+b1000000000000000 -
+b1000000001000000 -
+b1000000001000100 -
+b1010000001000100 -
+b0 -
+b1000000000000000 -
+b1000000001000000 -
+b1000000001000100 -
+b1010000001000100 -
+b1110000001000100 -
+bx000 *
+b100 ,
+bx011 *
+b11 )
+b1 E
+bx000011 *
+b1000100 ,
+bx010011 *
+b10011 )
+b10 E
+bx000010011 *
+b10000001000100 ,
+bx100010011 *
+b100010011 )
+b11 E
+bx000100010011 *
+b1010000001000100 ,
+bx001100010011 *
+b1100010011 )
+b100 E
+b1100010011 *
+b100000000 .
+b100010000 .
+b1000100010000 .
+b1000100010100 .
+0G
+0H
+1I
+0J
+1K
+0L
+0M
+0N
+1O
+0P
+0Q
+1R
+1S
+1T
+0U
+0V
+1W
+0X
+1Y
+1Z
+b1 H!
+b1 J!
+b1 P!
+b1 R!
+b1 X!
+b1 Z!
+b1 `!
+b1 b!
+b100 h!
+b11 j!
+b100 `
+b10100 `
+b100010100 `
+b1000100010100 `
+b10001000100010100 `
+b1000000000000000 ^
+b1000000001000000 ^
+b1000000001000100 ^
+b1010000001000100 ^
+b1110000001000100 ^
+1v
+1"!
+1!!
+11!
+1=!
+b100 @!
+b11 B!
+b10 3!
+b10 5!
+b1000 &!
+b100 (!
+b1 w
+b1 y
+b1000000000000000 _
+b1010000000000000 _
+b1010000001000000 _
+b1010000001000100 _
+b0 ^
+b1000000000000000 ^
+b1000000001000000 ^
+b1000000001000100 ^
+b1010000001000100 ^
+b1110000001000100 ^
+b100000000 ]
+b100010000 ]
+b1000100010000 ]
+b1000100010100 ]
+11
+13
+17
+1;
+#20000
+0$
+0[
+#25000
+1$
+1[
+b11010011100100011101 &
+b0 D
+b10001000100010000 +
+b10001000100011000 +
+b101010100 (
+b101010100 '
+b11010011100101011101 &
+b1 D
+b10001000100001000 +
+b10001000101001000 +
+b101011100 (
+b101011100 '
+b11010011001001011101 &
+b10 D
+b10001000001001000 +
+b10001001001001000 +
+b101101100 (
+b101101100 '
+b11010001001001011101 &
+b11 D
+b10000001001001000 +
+b10001001001001000 +
+b100 D
+b1001001001000 +
+b1000001001001001000 +
+b1101101100 (
+b1101101100 '
+b0 -
+b1 -
+b1000001 -
+b1000101 -
+b10000001000101 -
+b110000001000101 -
+b0 -
+b1 -
+b1000000000000000000001 -
+b1000000000000000000101 -
+b1000000010000000000101 -
+b1000000110000000000101 -
+b0 -
+b1 -
+b1000000000000000000001 -
+b1000000001000000000001 -
+b1000000011000000000001 -
+b1000000111000000000001 -
+b0 -
+b1 -
+b1000000000000000000001 -
+b1000000001000000000001 -
+b101000000001000000000001 -
+b101000000101000000000001 -
+b0 -
+b1 -
+b1000000000000000000001 -
+b1000000001000000000001 -
+b101000000001000000000001 -
+b101000000001001000000001 -
+b0 E
+b1010000001000000 ,
+b1010000001000001 ,
+b1100010001 *
+b1100010001 )
+b1 E
+b1010000000000001 ,
+b1010001000000001 ,
+b1100000001 *
+b1100000001 )
+b10 E
+b1000001000000001 ,
+b1001001000000001 ,
+b1011000001 *
+b1011000001 )
+b11 E
+b1001000000001 ,
+b100 E
+b1000000001001000000001 ,
+b10001011000001 *
+b10001011000001 )
+b0 .
+b1000 .
+b1000000000000001000 .
+b1000000001000001000 .
+b1000000001001001000 .
+1G
+1J
+1M
+0O
+1P
+0R
+0T
+b0 P!
+b1 P!
+b0 X!
+b10 X!
+b10 Z!
+b0 `!
+b1 `!
+b0 h!
+b1 h!
+b1 j!
+b0 ^
+b0 ]
+b1 ^
+b1000000000000000000001 ^
+b1000000001000000000001 ^
+b101000000001000000000001 ^
+b101000000001001000000001 ^
+b100000000 ]
+b100010000 ]
+b1000100010000 ]
+b1000100010100 ]
+b10001000100010001 `
+b10001001000010001 `
+1h
+1f
+0v
+1#!
+0"!
+0!!
+01!
+1.!
+1?!
+0=!
+b0 @!
+b1 @!
+b1 B!
+b0 3!
+b10000 3!
+b0 5!
+b0 &!
+b100 &!
+b11 (!
+b0 w
+b10 j
+b10 l
+b0 ^
+b0 ]
+b1 ^
+b1000000000000000000001 ^
+b1000000001000000000001 ^
+b101000000001000000000001 ^
+b101000000001001000000001 ^
+b1000000000 ]
+b1000010000 ]
+b1001000010000 ]
+b1001000010001 ]
+b1000001010000001000100 _
+b1000000010000001000100 _
+b1000000001000001000100 _
+b1000000001001000000100 _
+b1000000001001000000001 _
+1/
+01
+07
+18
+b0 ^
+b0 ]
+b1 ^
+b1000000000000000000001 ^
+b1000000001000000000001 ^
+b101000000001000000000001 ^
+b101000000001001000000001 ^
+b1 ]
+b10000000000000001 ]
+b10000001000000001 ]
+b10000001000010001 ]
+0;
+1?
+#30000
+0$
+0[
+#35000
+1$
