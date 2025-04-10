@@ -33,8 +33,8 @@ endgenerate
 
 always_comb 
 begin
-  out_request = 1'b0;
-  grant_o = 1'b0;
+  out_request = {in_Port_Cnt*in_Port_Cnt{1'b0}};
+  grant_o = {in_Port_Cnt*vc_Num{1'b0}};
 
   //We are computing an array out_request such that at each output port we get the respective input ports which have an active transaction in their VC's `
   for(int port =0; port<in_Port_Cnt; port++) begin 
