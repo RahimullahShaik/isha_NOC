@@ -41,7 +41,7 @@ initial
 
     task initialize();
         clk <= 0;
-        rst_n  = 1;
+        rst_n  = 0;
         for(int i=0; i < in_Port_Cnt; i++)
         begin
             curr_highest_priority_vc[i] = 1'b0;
@@ -55,7 +55,7 @@ initial
 
     task clear_reset();
         @(posedge clk);
-            rst_n <= 0;
+            rst_n <= 1;
     endtask
     
     task test();
@@ -76,6 +76,7 @@ initial
             gen_grant_o();
             check_matrices();
         end
+        #5 $stop;
     endtask
     
     //round robin on vc's
