@@ -4,24 +4,24 @@ import params_noc::*;
 module status_Buffer #(parameter BUFFER_SIZE = 8)
 
 (
-  input clk,					//clk
-  input rst_n,					//reset
-  input read_i,					//read input signal 
-  input write_i,				//write input signal
-  output logic buf_empty,			//buffer empty
-  output logic buf_full,			//buffer full
-  output logic buf_On_Off,			//Buffer on and off threshold 
-  input flit_Data_noVC input_Data,		//input flit
-  output flit_Data_withvc output_Data,		//output flit 
-  input inout_Port port_i,			//port input 
-  output inout_Port port_o,			//port output 
-  input [VC_Size-1:0] vc_New,			//Vc allocation 
-  input vc_Val,					//Vc valid 
-  output logic vc_Req,				//Vc allocationn request
-  output logic vc_Alloc,			//Vc allocation for the next flit sent to the upstream router 
-  output logic switch_Req,			// switch allocation request
-  output logic err,				//error
-  output logic [VC_Size-1:0] downstream_Vc	//signal to tell if vc is available in down stream router 
+  input clk,					                            //clk
+  input rst_n,					                          //reset
+  input read_i,					                          //read signal 
+  input write_i,				                          //write signal
+  output logic buf_empty,			                    //buffer empty
+  output logic buf_full,			                    //buffer full
+  output logic buf_On_Off,			                  //Buffer on and off signal 
+  input flit_Data_noVC input_Data,	              //input flit without vc info
+  output flit_Data_withvc output_Data,		        //output flit after being assigned to a vc 
+  input inout_Port port_i,			                  //input port
+  output inout_Port port_o,			                  //output port 
+  input [VC_Size-1:0] vc_New,			                //Vc allocation 
+  input vc_Val,					                          //Vc valid 
+  output logic vc_Req,				                    //Vc allocationn request
+  output logic vc_Alloc,			                    //Vc allocation for the next flit sent to the upstream router 
+  output logic switch_Req,			                  // switch allocation request
+  output logic err,				                        //error
+  output logic [VC_Size-1:0] downstream_Vc	      //signal to tell if vc is available in down stream router 
 );
 
   
