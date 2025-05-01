@@ -1,4 +1,4 @@
-import params_noc::*;
+import params_noc::*; 
 
 //Status Buffer verilog code which tells us about the status of the current flit 
 module status_Buffer #(parameter BUFFER_SIZE = 8)
@@ -14,7 +14,7 @@ module status_Buffer #(parameter BUFFER_SIZE = 8)
   input flit_Data_noVC input_Data,	              //input flit without vc info
   output flit_Data_withvc output_Data,		        //output flit after being assigned to a vc 
   input inout_Port port_i,			                  //input port
-  output inout_Port port_o,			                  //output port 
+  output inout_Port port_o,			                  //output port for the next hop we get the next hop info from the Route computation block 
   input [VC_Size-1:0] vc_New,			                //Vc allocation 
   input vc_Val,					                          //Vc valid 
   output logic vc_Req,				                    //Vc allocationn request
@@ -61,18 +61,37 @@ circular_Buffer #(.BUFFER_SIZE(BUFFER_SIZE)) cirbuf (.clk(clk), .rst_n(rst_n), .
   .buf_empty(buf_empty), .buf_full(buf_full), .buf_On_Off(buf_On_Off));
 
 // //FSM logic 
-// always@(*) begin 
+ always@(*) begin 
+   nxt_state = p_state;
+   downstream_Vc_Next = downstream_Vc;
+   read_i = 0
+   write_i = 0
+   end_Packet_Next = end_Packet
 
-//   case(state_t)
-//     default: begin 
-//     end 
-//     IDLE: begin 
-//     end 
+
+  case(p_state)
+    IDLE: begin
+      //if buffer is empty and the transaction is write and only if the flit is head or headtail, we should allocate it in buffer
+      //the next hop output port is loaded  
+      if((input_Data.flit_Data_Label = HEAD | input_Data.flit_Data_Label = HEADTAIL) & write_i & buf_empty)begin 
+        nxt_state = VC;
+        port_o_Next = port_o;
+        write_Cmd = 1;
+      end 
+      //if the flit is Head's tail it means flit should end this is the last beat
+      if(write_i & input_Data.flit_Data_Label = HEADTAIL) begin
+        end_Packet = 1
+      end
+
+
+        end 
+     VC: begin 
+      end 
 //     VC: begin 
 //     end 
 //     SWITCH: begin 
 //     end 
-//   endcase
-// end
+   endcase
+ end
 
 endmodule
