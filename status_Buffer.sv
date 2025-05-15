@@ -97,11 +97,20 @@ circular_Buffer #(.BUFFER_SIZE(BUFFER_SIZE)) cirbuf (.clk(clk), .rst_n(rst_n), .
     //start the vc allocation and wait for the body and tail packets to arrive  
      VC: begin 
       vc_Req = 1;                   //sending vc allocation request to vc allocator module to get the next available free vc at the downstream router
-      if() 
-      if(input_Data.flit_Data_Label = HEAD)
+      if(vc_Val) begin
+        nxt_state = SWITCH;
+        downstream_Vc_Next = vc_New;
+      end  
+
+      //if the input flit is Head or Head tail or if the write_i is being asserted even after getting the last packet or if we are trying to read from the buffer then err signal should be asserted 
+      if((write_i & (input_Data.flit_Data_Label = HEAD | input_Data.flit_Data_Label = HEADTAIL | end_Packet)) | read_i)
         err = 1;
       end  
-      if
+
+      //if the current flit is Tail then it is the end of the packet
+      if(write_i & input_Data.flit_Data_Label = TAIL) begin 
+        end_Packet_Next = 1;
+      end
     SWITCH: begin 
       end 
    endcase
