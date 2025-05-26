@@ -103,14 +103,15 @@ circular_Buffer #(.BUFFER_SIZE(BUFFER_SIZE)) cirbuf (.clk(clk), .rst_n(rst_n), .
       end  
 
       //if the input flit is Head or Head tail or if the write_i is being asserted even after getting the last packet or if we are trying to read from the buffer then err signal should be asserted 
-      if((write_i & (input_Data.flit_Data_Label == HEAD | input_Data.flit_Data_Label == HEADTAIL | end_Packet)) | read_i)
+      if((write_i & (input_Data.flit_Data_Label == HEAD | input_Data.flit_Data_Label == HEADTAIL | end_Packet)) | read_i)begin
         err = 1;
       end  
 
       //if the current flit is Tail then it is the end of the packet
-      if(write_i & input_Data.flit_Data_Label == TAIL) begin 
+      if(write_i & (input_Data.flit_Data_Label == TAIL)) begin 
         end_Packet_Next = 1;
       end
+     end
      SWITCH: begin
 
       //if the current flit is tail or headtail then it is the end of the packet and we should signal the upstream router that the buffer is ready to accept a new flit
@@ -132,12 +133,12 @@ circular_Buffer #(.BUFFER_SIZE(BUFFER_SIZE)) cirbuf (.clk(clk), .rst_n(rst_n), .
       end
       
       //if write_i is asserted and current flit is head or headtail or valid vc is asserted then error signal should be asserted
-      if(write_i &(input_Data.flit_Data_Label == HEAD | input_Data.flit_Data_Label == HEADTAIL) | vc_Val = 1)begin
+      if(write_i & (input_Data.flit_Data_Label == HEAD | input_Data.flit_Data_Label == HEADTAIL) | (vc_Val == 1))begin
         err_Next = 1;
       end
       end 
 
-      Default:begin 
+      default:begin 
           nxt_state = IDLE;
           vc_Alloc_next = 1;
           err_Next = 1;

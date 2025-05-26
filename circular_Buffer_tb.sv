@@ -144,14 +144,14 @@ end
   endtask
 
   task createflit();
-    new_Flit.flit_DataLabel                    	<= HEAD;
+    new_Flit.flit_Data_Label                <= HEAD;
     new_Flit.data.head_Data.x_Dest          <= {x_Des_Addr_Size{op_Num}};
     new_Flit.data.head_Data.y_Dest          <= {y_Des_Addr_Size{op_Num}};
     new_Flit.data.head_Data.head_Payload    <= {header_Payloadsize{op_Num}};
   endtask
   
   task createflit1();
-    new_Flit.flit_DataLabel                    	<= BODY;
+    new_Flit.flit_Data_Label                <= BODY;
     new_Flit.data.head_Data.x_Dest          <= {5{op_Num}};
     new_Flit.data.head_Data.y_Dest          <= {5{op_Num}};
     new_Flit.data.head_Data.head_Payload    <= {header_Payloadsize{op_Num}};

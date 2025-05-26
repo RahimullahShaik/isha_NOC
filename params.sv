@@ -38,7 +38,7 @@ typedef struct packed
 //structure to store either the header/body/tail/headtail depending upon the flit data label with virtual channel allocation 	
 typedef struct packed 
 {
-	flit_Data_Label flit_DataLabel;
+	flit_Data_Label flit_Data_Label;
 	//Virtual Channel ID
 	logic [VC_Size-1:0] vc_Id;
 	//for union only one data type can be accessed at a time as the storage is allocated only for one data type
@@ -52,7 +52,7 @@ typedef struct packed
 //structure to store either the header/body/tail/headtail depending upon the flit data label with no VC allocation 	
 typedef struct packed 
 {
-	flit_Data_Label flit_DataLabel;
+	flit_Data_Label flit_Data_Label;
 	//for union only one data type can be accessed at a time as the storage is allocated only for one data type
 	union packed 
 	{
